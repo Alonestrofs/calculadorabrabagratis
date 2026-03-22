@@ -36,6 +36,6 @@ Uma aplicação web interativa construída com **Streamlit**, que oferece vária
 1. Clone este repositório:
 
 ```bash
-git clone https://github.com/alonestrofs/calculadorabrabagratis.git
-cd calculadorabrabagratis
+git clone https://github.com/alonestrofs/calculadora.git
+cd calculadora
 
