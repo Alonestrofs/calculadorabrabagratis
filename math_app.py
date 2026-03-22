@@ -137,7 +137,7 @@ def plot_function(expr, var, x_range=(-10, 10), points=1000):
 
         st.pyplot(fig)
     except Exception as e:
-        st.error(f"❌ **Erro ao gerar gráfico:** {e}")
+        st.error(f" **Erro ao gerar gráfico:** {e}")
 
 def basic_calculator():
     st.header("Calculadora Básica")
@@ -158,7 +158,7 @@ def basic_calculator():
             }
             result = result_map[operation](num1, num2)
             if result is None:
-                st.error("❌ **Erro:** Divisão por zero")
+                st.error(" **Erro:** Divisão por zero")
             else:
                 steps = []
                 steps.append("Cálculo da operação:")
@@ -169,7 +169,7 @@ def basic_calculator():
                 steps.append(f"$${latex_expr}$$")
                 render_steps(steps)
         except Exception as e:
-            st.error(f"❌ **Erro no cálculo:** {e}")
+            st.error(f" **Erro no cálculo:** {e}")
 
 
 def polynomial_solver():
@@ -204,7 +204,7 @@ def polynomial_solver():
                     steps.append(f"$$x_{i+1} = {latex(sol)}$$")
             render_steps(steps, title="Passo a Passo da Resolução")
         except Exception as e:
-            st.error(f"❌ **Erro ao resolver:** {e}")
+            st.error(f" **Erro ao resolver:** {e}")
 
 def summation_calculator():
     st.header("Calculadora de Somatórios")
@@ -234,7 +234,7 @@ def summation_calculator():
             steps.append(f"$$\sum_{{{latex(var)}={int(lower)}}}^{{{int(upper)}}} {latex(expr)} = {latex(result)}$$")
             render_steps(steps, "Cálculo do Somatório")
         except Exception as e:
-            st.error(f"❌ **Erro no cálculo:** {e}")
+            st.error(f" **Erro no cálculo:** {e}")
 
 def advanced_calculator():
     st.header("Cálculos Avançados com Passo a Passo")
@@ -289,7 +289,7 @@ def advanced_calculator():
                 render_steps(steps, "Cálculo da Derivada")
 
             except Exception as e:
-                st.error(f"❌ **Erro no cálculo:** {e}")
+                st.error(f" **Erro no cálculo:** {e}")
 
     with tabs[1]: # Integral
         func_str = st.text_input("Função para integrar f(x):", "x**2 + sin(x)", key="int_func")
@@ -341,7 +341,7 @@ def advanced_calculator():
                 render_steps(steps, "Cálculo da Integral")
 
             except Exception as e:
-                st.error(f"❌ **Erro no cálculo:** {e}")
+                st.error(f" **Erro no cálculo:** {e}")
 
     with tabs[2]: # Limite
         func_str = st.text_input("Função para limite f(x):", "sin(x)/x", key="lim_func")
@@ -391,7 +391,7 @@ def advanced_calculator():
                 render_steps(steps, "Cálculo do Limite")
 
             except Exception as e:
-                st.error(f"❌ **Erro no cálculo:** {e}")
+                st.error(f" **Erro no cálculo:** {e}")
 
     with tabs[3]: # Série de Taylor
         func_str = st.text_input("Função f(x):", "exp(x)", key="taylor_func")
@@ -422,7 +422,7 @@ def advanced_calculator():
                 render_steps(steps, "Cálculo da Série de Taylor")
 
             except Exception as e:
-                st.error(f"❌ **Erro no cálculo:** {e}")
+                st.error(f" **Erro no cálculo:** {e}")
 
     with tabs[4]: # Transformada de Laplace
         func_str = st.text_input("Função f(t):", "t*exp(-a*t)", key="transf_func")
@@ -450,7 +450,7 @@ def advanced_calculator():
                 render_steps(steps, f"Cálculo da Transformada {transf_type} de Laplace")
 
             except Exception as e:
-                st.error(f"❌ **Erro no cálculo:** {e}")
+                st.error(f" **Erro no cálculo:** {e}")
 
 
 def graphing_calculator():
@@ -474,17 +474,17 @@ def graphing_calculator():
             st.latex(f"f(x) = {latex(expr)}")
             plot_function(expr, x, (x_min, x_max), int(points))
         except Exception as e:
-            st.error(f"❌ **Erro ao plotar:** {e}")
+            st.error(f" **Erro ao plotar:** {e}")
 
 def main():
-    st.markdown('<h1 class="header">🧮 Calculadora Avançada Pro</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="header">Calculadora Avançada</h1>', unsafe_allow_html=True)
     st.markdown("---")
 
     tool_options = [
         "Calculadora Básica",
         "Resolvedor de Equações",
         "Calculadora de Somatórios",
-        "Cálculos Avançados (Cálculo)",
+        "Cálculos Avançados (Cálculo)", /* Colocar calculo a 2 variaveis? */
         "Calculadora Gráfica"
     ]
 
