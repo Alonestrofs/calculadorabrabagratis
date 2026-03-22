@@ -8,7 +8,7 @@ from sympy import (symbols, diff, integrate, series, parse_expr, sin, cos, tan,
 
 # Configuração da página e Estilos CSS
 st.set_page_config(
-    page_title="Calculadora Avançada Pro",
+    page_title="Calculadora",
     page_icon="🧮",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -56,7 +56,7 @@ div.stButton > button:hover {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     font-size: 1.1em;
 }
-/* Container para fórmulas LaTeX */
+/* Container para fórmulas LaTeX - tentar corrigir implentação */
 .latex-container {
     margin: 15px 0;
     padding: 25px;
@@ -88,10 +88,10 @@ div.stButton > button:hover {
 """, unsafe_allow_html=True)
 
 
-# --- Funções de Renderização ---
+# Funções de Renderização
 
 def render_latex_step(latex_expr):
-    """Renderiza uma expressão LaTeX usando o método nativo do Streamlit."""
+    """Renderiza uma expressão LaTeX usando o método nativo do Streamlit. - ainda ta dando errado"""
     st.markdown('<div class="latex-container">', unsafe_allow_html=True)
     st.latex(latex_expr)
     st.markdown('</div>', unsafe_allow_html=True)
@@ -114,7 +114,7 @@ def render_steps(steps_list, title=""):
             st.markdown(f'<div class="step-container">{step}</div>', unsafe_allow_html=True)
 
 
-# --- Funções da Calculadora ---
+# Funções da Calculadora
 
 def plot_function(expr, var, x_range=(-10, 10), points=1000):
     """Gera o gráfico de uma função matemática."""
@@ -490,9 +490,6 @@ def main():
 
     st.sidebar.title("Ferramentas")
     selection = st.sidebar.radio("Escolha uma ferramenta:", tool_options)
-
-    st.sidebar.markdown("---")
-    st.sidebar.info("Esta aplicação utiliza as bibliotecas SymPy e Streamlit para fornecer uma calculadora simbólica interativa.")
 
     if selection == tool_options[0]:
         basic_calculator()
